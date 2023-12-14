@@ -8,6 +8,5 @@ print("Listening")
 while True:
     message = inport.receive()
     if message:
-        print(message)
         if message.type == "note_on":
-            print(note_library.get_single_note(message.note))
+            print(note_library.get_single_note(message.note), message.note)
