@@ -54,10 +54,28 @@ symbol_dict = {
     67: ")"
 }
 
+diff_dict = {
+    1: ";",
+    2: ",",
+    3: ":",
+    4: " ",
+    5: ".",
+    6: "!",
+    7: "'",
+    8: "?",
+    9: "\"",
+    10: "=",
+    11: "/",
+    12: "\n"
+}
+
 def get_single_note(letter_mode, shifted, note_num):
     if letter_mode and note_num in single_note_dict:
         return single_note_dict[note_num].capitalize() if shifted else single_note_dict[note_num]
     elif note_num in number_dict:
         return symbol_dict[note_num] if shifted else number_dict[note_num]
-    return None
+    return ""
 
+def get_note_diff(note1, note2):
+    diff = abs(note2 - note1)
+    return diff_dict[diff] if 1 <= abs(diff) <= 12 else ""
